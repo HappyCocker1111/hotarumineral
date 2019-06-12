@@ -78,18 +78,6 @@
 
 				<?php
 			endif;
-
-			$goods = new WP_Query( array(
-					'post_type' => 'goods',
-					'posts_per_page' => 6
-				)
-			);
-			$blog = new WP_Query( array(
-					'post_type' => 'blog',
-					'posts_per_page' => 6
-				)
-			);
-
 			if ( have_posts() ) :
 
 				while ( have_posts() ) : the_post();
