@@ -1,0 +1,49 @@
+/*
+TOP Content
+*/
+@media (min-width: 600px){
+    .goods, .blog{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: -5rem;
+        padding: 5rem 0;
+        width: calc( 100% + 3rem );
+    }
+    article.preview-goods, article.preview-blog{
+        width: 50%;
+    }
+}
+
+@media ( min-width: 1000px ) {
+    main#goods-info, main#blog-info {
+		display: block;
+		padding: 4rem 4rem 0 4rem;
+		width: 100%;
+    }
+
+    .goods, .blog {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media ( min-width: 1200px ) {
+    .goods, .blog {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    article.preview-goods, article.preview-blog{
+        width: calc(100% / 3);
+    }
+}
+
+@media ( min-width: 1600px ) {
+    article.preview-goods, article.preview-blog{
+        width: 25%;
+    }
+}
+
+
+

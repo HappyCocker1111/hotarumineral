@@ -100,38 +100,44 @@
 
 
 <main id="goods-info" style="margin-top:100px;">
-	<div class="goods">
-            <?php
-                $posts = new WP_Query( array(
-                        'post_type' => 'goods',
-                        'posts_per_page' => 6
-                    )
-                );
-				if ( have_posts() ) : 
-					while ( $posts->have_posts() ) : $posts->the_post();
-						get_template_part( 'inc/post-feed', get_post_type() );
-					endwhile; 
-				endif; 
-            ?>
-    </div><!-- .goods -->
+	<div class="section-inner">
+		<div class="goods">
+				<?php
+					$posts = new WP_Query( array(
+							'post_type' => 'goods',
+							// 'posts_per_page' => 6
+						)
+					);
+					if ( have_posts() ) : 
+						while ( $posts->have_posts() ) : $posts->the_post();
+							get_template_part( 'inc/post-feed', get_post_type() );
+						endwhile; 
+					endif; 
+				?>
+		</div><!-- .goods -->
+	</div>
+	
 </main><!-- #goods-info -->
 
 <main id="blog-info" style="margin-top:100px;">
-	<div class="blog">
-			<?php
-                $posts = new WP_Query( array(
-                        'post_type' => 'blog',
-                        'posts_per_page' => 6
-                    )
-                );
-				if ( have_posts() ) : 
-					while ( $posts->have_posts() ) : $posts->the_post();
-						get_template_part( 'inc/post-feed', get_post_type() );
-					endwhile; 
-				endif; 
-            ?>
-    </div><!-- .blog -->
+	<div class="section-inner">
+		<div class="blog">
+				<?php
+					$posts = new WP_Query( array(
+							'post_type' => 'blog',
+							// 'posts_per_page' => 6
+						)
+					);
+					if ( have_posts() ) : 
+						while ( $posts->have_posts() ) : $posts->the_post();
+							get_template_part( 'inc/post-feed', get_post_type() );
+						endwhile; 
+					endif; 
+				?>
+		</div><!-- .blog -->
+	</div>
 </main><!-- #blog-info -->
+
 
 
 <?php get_footer(); ?>
