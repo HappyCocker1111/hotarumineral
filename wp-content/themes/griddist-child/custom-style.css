@@ -50,4 +50,9 @@ TOP Content
 .heght50{
     margin-top: 50px;
 }
-
+/*共通スタイル-サイドバーSNSボタン*/
+ul.side_sns {
+    display: flex;
+    width: 200px;
+    margin: 0;
+}
