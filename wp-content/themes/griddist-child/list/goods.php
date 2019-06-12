@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: goods
+*/
+?>
+
 <?php get_header(); ?>
 
 <main id="site-content">
@@ -78,67 +84,56 @@
 
 				<?php
 			endif;
-			if ( have_posts() ) :
 
-				while ( have_posts() ) : the_post();
+
+			// ①ページネーションに現在のページ位置を知らせるのに必要
+			$paged = (int) get_query_var('paged');
+
+			$args = array(
+			// get_option('posts_per_page') ← で管理画面で設定した、記事一覧で表示するページ数を取得
+			'posts_per_page' => get_option('posts_per_page'),
+			// (int) get_query_var('paged') ← で取得した、$pagedを挿入
+			'paged' => $paged,
+			'orderby' => 'post_date',
+			'order' => 'DESC',
+			'post_type' => 'goods',
+			'post_status' => 'publish'
+			);
+
+			// ②記事一覧のMaxページ数を取得するのに必要
+			$the_query = new WP_Query($args);
+
+
+
+			if ( $the_query->have_posts() ) :
+
+				while ( $the_query->have_posts() ) : $the_query->the_post();
 
 					get_template_part( 'inc/post-feed', get_post_type() );
 
 				endwhile;
 
 			endif;
+			// 記事一覧のループ終わり
+			wp_reset_postdata();
 
 			?>
 
         </div><!-- .posts -->
-
+		<div class="heght50"></div>
 		<?php 
-		// get_template_part( 'inc/pagination' ); 
-		?>
+			// ページネーション
+			$page_arg = array(
+				'current' => max( 1, $paged ),
+				'total' => $the_query->max_num_pages,
+			);
+			
+			echo paginate_links($page_arg);
+		 ?>
 
     </div><!-- .section-inner -->
 
 </main><!-- #site-content -->
-
-
-<main id="goods-info" style="margin-top:100px;">
-	<div class="section-inner">
-		<div class="goods">
-				<?php
-					$posts = new WP_Query( array(
-							'post_type' => 'goods',
-							// 'posts_per_page' => 6
-						)
-					);
-					if ( have_posts() ) : 
-						while ( $posts->have_posts() ) : $posts->the_post();
-							get_template_part( 'inc/post-feed', get_post_type() );
-						endwhile; 
-					endif; 
-				?>
-		</div><!-- .goods -->
-	</div>
-	
-</main><!-- #goods-info -->
-
-<main id="blog-info" style="margin-top:100px;">
-	<div class="section-inner">
-		<div class="blog">
-				<?php
-					$posts = new WP_Query( array(
-							'post_type' => 'blog',
-							// 'posts_per_page' => 6
-						)
-					);
-					if ( have_posts() ) : 
-						while ( $posts->have_posts() ) : $posts->the_post();
-							get_template_part( 'inc/post-feed', get_post_type() );
-						endwhile; 
-					endif; 
-				?>
-		</div><!-- .blog -->
-	</div>
-</main><!-- #blog-info -->
 
 
 
