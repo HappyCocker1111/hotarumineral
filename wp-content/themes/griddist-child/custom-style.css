@@ -56,6 +56,10 @@ ul.side_sns {
     margin: 0;
 }
 
+button#load-more{
+    background: #4b86fb;
+}
+
 /*共通スタイル-新着記事一覧*/
 a.CtaButton{
     text-decoration: none;

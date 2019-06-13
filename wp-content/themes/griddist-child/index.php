@@ -54,52 +54,33 @@
 
 	<?php endif; ?>
 
+</main><!-- #site-content -->
+<?php if(is_front_page()): ?>
+<main id="goods-info" style="margin-top:50px;">
 	<div class="section-inner">
 	<div class="top_title">
 			<h2>お知らせ<br><span>news</span></h2>
 		</div>
-
-		<div class="posts load-more-target" id="posts">
-
-			<div class="grid-sizer"></div>
-
-			<?php if ( is_archive() || is_search() ) : ?>
-
-				<div class="preview archive-header archive-header-desktop">
-
-					<div class="preview-wrapper bg-color-black color-gray">
-
-						<div class="preview-inner">
-
-							<?php echo $archive_header_contents; ?>
-
-						</div><!-- .preview-inner -->
-
-					</div><!-- .preview -->
-
-				</div><!-- .archive-header -->
-
+		<div class="goods">
 				<?php
-			endif;
-			if ( have_posts() ) :
+					$posts = new WP_Query( array(
+							'post_type' => 'post',
+							// 'posts_per_page' => 6
+						)
+					);
+					if ( have_posts() ) : 
+						while ( $posts->have_posts() ) : $posts->the_post();
+							get_template_part( 'inc/post-feed', get_post_type() );
+						endwhile; 
+					endif; 
+				?>
+		</div><!-- .goods -->
 
-				while ( have_posts() ) : the_post();
+		<a href="<?php echo home_url('/お知らせ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
 
-					get_template_part( 'inc/post-feed', get_post_type() );
-
-				endwhile;
-
-			endif;
-
-			?>
-
-        </div><!-- .posts -->
-
-				<a href="<?php echo home_url('/お知らせ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
-
-    </div><!-- .section-inner -->
-
-</main><!-- #site-content -->
+	</div><!-- .section-inner -->
+	
+</main><!-- #goods-info -->
 
 
 <main id="goods-info" style="margin-top:100px;">
@@ -152,6 +133,52 @@
 		
 	</div><!-- .section-inner -->
 </main><!-- #blog-info -->
+<?php else: ?>
+<main id="serch" style="margin-top:100px;">
+<div class="section-inner">
+
+		<div class="posts load-more-target" id="posts">
+
+			<div class="grid-sizer"></div>
+
+			<?php if ( is_archive() || is_search() ) : ?>
+
+				<div class="preview archive-header archive-header-desktop">
+
+					<div class="preview-wrapper bg-color-black color-gray">
+
+						<div class="preview-inner">
+
+							<?php echo $archive_header_contents; ?>
+
+						</div><!-- .preview-inner -->
+
+					</div><!-- .preview -->
+
+				</div><!-- .archive-header -->
+
+				<?php
+			endif;
+			if ( have_posts() ) :
+
+				while ( have_posts() ) : the_post();
+
+					get_template_part( 'inc/post-feed', get_post_type() );
+
+				endwhile;
+
+			endif;
+
+			?>
+
+        </div><!-- .posts -->
+
+				<?php get_template_part( 'inc/pagination' ); ?>
+
+    </div><!-- .section-inner -->
+</main><!-- #blog-info -->
+<?php endif; ?>
+
 
 
 

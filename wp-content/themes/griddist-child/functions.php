@@ -21,3 +21,12 @@ function change_posts_per_page($query) {
 
 //ウィジェットでショートコードを使う
 add_filter('widget_text','do_shortcode');
+
+//パラメーター取得設定
+function add_meta_query_vars( $public_query_vars ) {
+  //$public_query_vars に、'param01'というキーを追加。
+  $public_query_vars[] = 'param01';
+  return $public_query_vars;
+}
+//add_meta_query_vars関数を実行
+add_filter( 'query_vars', 'add_meta_query_vars' );
