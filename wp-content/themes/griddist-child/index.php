@@ -55,6 +55,9 @@
 	<?php endif; ?>
 
 	<div class="section-inner">
+	<div class="top_title">
+			<h2>お知らせ<br><span>news</span></h2>
+		</div>
 
 		<div class="posts load-more-target" id="posts">
 
@@ -101,6 +104,9 @@
 
 <main id="goods-info" style="margin-top:100px;">
 	<div class="section-inner">
+	<div class="top_title">
+			<h2>新商品<br><span>new item</span></h2>
+		</div>
 		<div class="goods">
 				<?php
 					$posts = new WP_Query( array(
@@ -124,6 +130,9 @@
 
 <main id="blog-info" style="margin-top:100px;">
 	<div class="section-inner">
+	<div class="top_title">
+			<h2>ブログ<br><span>blog</span></h2>
+		</div>
 		<div class="blog">
 				<?php
 					$posts = new WP_Query( array(

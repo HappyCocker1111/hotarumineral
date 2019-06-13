@@ -6,8 +6,7 @@ TOP Content
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-bottom: -5rem;
-        padding: 5rem 0;
+        padding: 1rem 0;
         width: calc( 100% + 3rem );
     }
     article.preview-goods, article.preview-blog{
@@ -32,6 +31,7 @@ TOP Content
     .goods, .blog {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
     
     article.preview-goods, article.preview-blog{
@@ -140,4 +140,24 @@ a.CtaButton p{
     display: inline-block;
     font-size: 27px;
     float: left;
+}
+
+.top_title, .top_title h2 {
+    color: #4b5f6c;
+    text-align: center;
+}
+.top_title h2{
+    margin: 22px;
+    display: inline-block;
+}
+.top_title h2 span {
+    display: block;
+    margin-top: -13px;
+    font-size: 24px;
+    font-weight: 100;
+}
+.top_title::before,
+.top_title::after{
+    display: inline-block;
+    content: url('http://localhost:8888/hotamine/wp-content/uploads/2019/06/toptitle.png');
 }
