@@ -7,6 +7,9 @@ Template Name: goods
 <?php get_header(); ?>
 
 <main id="site-content">
+	<div class="top_title">
+		<h2>新商品<br><span>new item</span></h2>
+	</div>
 
 	<?php if ( is_archive() || is_search() ) : ?>
 

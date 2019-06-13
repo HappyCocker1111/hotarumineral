@@ -61,6 +61,9 @@ Template Name: blog
 	<?php endif; ?>
 
 	<div class="section-inner">
+		<div class="top_title">
+			<h2>ブログ<br><span>blog</span></h2>
+		</div>
 
 		<div class="posts load-more-target" id="posts">
 
