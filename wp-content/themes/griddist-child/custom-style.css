@@ -6,7 +6,6 @@ TOP Content
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 1rem 0;
         width: calc( 100% + 3rem );
     }
     article.preview-goods, article.preview-blog{
@@ -164,4 +163,86 @@ a.CtaButton p{
 .top_title::after{
     display: inline-block;
     content: url('http://localhost:8888/hotamine/wp-content/uploads/2019/06/toptitle.png');
+}
+
+/*共通スタイル-下層ページ*/
+.featured-media {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/*固定ページ-お店について*/
+body.page-template-default.page.page-id-20 header.post-header{
+    display: none;
+}
+body.page-template-default.page.page-id-20 main#site-content,
+body.page-template-default.page.page-id-20 .post-inner.section-inner{
+    padding: 0;
+}
+body.page-template-default.page.page-id-20 #site-footer{
+    margin-top: 0;
+    width: 100%;
+}
+.about_us h2 {
+    text-align: center;
+}
+.about_us .map_wap {
+    display: flex;
+    margin-bottom: 47px;
+}
+.about_us .map_wap .left,
+.about_us .map_wap .right{
+    width: 50%;
+}
+.about_us .map_wap .left{
+    height: auto;
+    position: relative;
+}
+.about_us .map_wap .left iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    }
+.about_us .map_wap .right h3{
+    color: white;
+    background-color: #a72832;
+    text-align: center;
+    margin: 0;
+}
+.about_us .map_wap .right p.text {
+    font-size: 1em;
+    margin-bottom: 0;
+    text-align: center;
+}
+.about_us .map_wap .right p.arrow_next img{
+    width: 20px;
+    margin: 0 auto;
+}
+
+@media ( max-width: 730px ) {
+    .about_us .map_wap {display: block;}
+    .about_us .map_wap .left,
+    .about_us .map_wap .right{
+        width: 100%;
+    }
+    .about_us .map_wap .left{ 
+        height: 400px; 
+        margin-bottom: 30px;
+    }
+    .about_us .map_wap .right p{
+        margin: 10px 0 0 0;
+    }
+}
+
+/*固定ページ-お問い合わせ*/
+body.page-template-default.page.page-id-22 main#site-content,
+body.page-template-default.page.page-id-22 .post-inner.section-inner{
+    padding: 0;
+}
+body.page-template-default.page.page-id-22 #site-footer{
+    margin-top: 0;
+    width: 100%;
 }
