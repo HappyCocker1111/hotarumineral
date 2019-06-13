@@ -92,9 +92,7 @@
 
         </div><!-- .posts -->
 
-		<?php 
-		// get_template_part( 'inc/pagination' ); 
-		?>
+				<a href="<?php echo home_url('/お知らせ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
 
     </div><!-- .section-inner -->
 
@@ -117,7 +115,10 @@
 					endif; 
 				?>
 		</div><!-- .goods -->
-	</div>
+
+		<a href="<?php echo home_url('/新商品/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+
+	</div><!-- .section-inner -->
 	
 </main><!-- #goods-info -->
 
@@ -137,7 +138,10 @@
 					endif; 
 				?>
 		</div><!-- .blog -->
-	</div>
+
+		<a href="<?php echo home_url('/ブログ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+		
+	</div><!-- .section-inner -->
 </main><!-- #blog-info -->
 
 

@@ -56,3 +56,88 @@ ul.side_sns {
     width: 200px;
     margin: 0;
 }
+
+/*共通スタイル-新着記事一覧*/
+a.CtaButton{
+    text-decoration: none;
+    border-top: 1px solid #254b63;
+    border-left: 1px solid #254b63;
+}
+.CtaButton {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-right: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px 68px 16px 32px;
+    position: relative;
+    text-decoration: none;
+    transition: background 250ms, color 250ms;
+}
+a.CtaButton::before {
+    content: '';
+    background: #254b63;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    -ms-transform: scaleX(0.77);
+    transform: scaleX(0.77);
+    -ms-transform-origin: 0 1px;
+    transform-origin: 0 1px;
+    width: 90%;
+    display: block;
+    position: absolute;
+    transition: transform 250ms 250ms;
+}
+a.CtaButton::after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: #254b63;
+    height: 100%;
+    right: 0;
+    top: 0;
+    -ms-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+    -ms-transform-origin: 1px 0;
+    transform-origin: 1px 0;
+    width: 1px;
+}
+.arrow::before,
+.arrow::after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* left: 0; */
+    right: -94px;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+}
+.CtaButton span.arrow::before{
+    left: 3px;
+    width: 27px;
+    height: 1px;
+    background: #254b63;
+}
+.CtaButton span.arrow::after{
+    left: 18px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid #254b63;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+a.CtaButton p{
+    color: #254b63;
+    margin: 0;
+    display: inline-block;
+    font-size: 27px;
+    float: left;
+}
