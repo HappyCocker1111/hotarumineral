@@ -166,7 +166,7 @@ a.CtaButton p{
 .top_title::before,
 .top_title::after{
     display: inline-block;
-    content: url('http://localhost:8888/hotamine/wp-content/uploads/2019/06/toptitle.png');
+    content: url('./img/toptitle.png');
 }
 
 /*共通スタイル-下層ページ*/
