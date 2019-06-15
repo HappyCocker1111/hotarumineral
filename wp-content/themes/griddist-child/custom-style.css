@@ -59,7 +59,10 @@ ul.side_sns {
 button#load-more{
     background: #4b86fb;
 }
-
+/*共通スタイル-コンテンツ包括エリア*/
+main#site-content {
+    min-height: 100vh;
+}
 /*共通スタイル-新着記事一覧*/
 a.CtaButton{
     text-decoration: none;

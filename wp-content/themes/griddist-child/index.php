@@ -64,8 +64,7 @@
 		<div class="goods">
 				<?php
 					$posts = new WP_Query( array(
-							'post_type' => 'post',
-							// 'posts_per_page' => 6
+							'post_type' => 'post'
 						)
 					);
 					if ( have_posts() ) : 
@@ -75,8 +74,20 @@
 					endif; 
 				?>
 		</div><!-- .goods -->
+		<?php
+			$posts = new WP_Query( array(
+				'post_type' => 'post'
+			)
+		);
+			$myposts = get_posts($posts);
+				if ( empty($myposts) ) :
+		 ?>
+		 	<p>coming soon!</p>
+		<?php else : ?>
+			<a href="<?php echo home_url('/お知らせ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+		<?php endif; ?>
 
-		<a href="<?php echo home_url('/お知らせ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+		
 
 	</div><!-- .section-inner -->
 	
@@ -91,8 +102,7 @@
 		<div class="goods">
 				<?php
 					$posts = new WP_Query( array(
-							'post_type' => 'goods',
-							// 'posts_per_page' => 6
+							'post_type' => 'goods'
 						)
 					);
 					if ( have_posts() ) : 
@@ -103,8 +113,18 @@
 				?>
 		</div><!-- .goods -->
 
-		<a href="<?php echo home_url('/新商品/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
-
+		<?php 
+				$posts = new WP_Query( array(
+					'post_type' => 'goods'
+				)
+			);
+			$myposts = get_posts($posts);
+			if ( empty($myposts) ) :
+		 ?>
+		 <p>coming soon!</p>
+		<?php else : ?>
+			<a href="<?php echo home_url('/新商品/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+		<?php endif; ?>
 	</div><!-- .section-inner -->
 	
 </main><!-- #goods-info -->
@@ -129,7 +149,21 @@
 				?>
 		</div><!-- .blog -->
 
+		<?php 
+			$posts = new WP_Query( array(
+				'post_type' => 'blog',
+				// 'posts_per_page' => 6
+			)
+		);
+		
+			$myposts = get_posts($posts);
+			if ( empty($myposts) ) :
+		?>
+		<p>coming soon!</p>
+		<?php else : ?>
 		<a href="<?php echo home_url('/ブログ/'); ?>" class="CtaButton"><p>一覧へ</p> <span class="arrow"></span></a>
+		<?php endif; ?>
+		
 		
 	</div><!-- .section-inner -->
 </main><!-- #blog-info -->
